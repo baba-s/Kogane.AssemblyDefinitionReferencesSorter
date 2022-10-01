@@ -7,3 +7,8 @@ AssemblyDefinitionAsset の References をファイル名順に並べ替える�
 ```csharp
 AssemblyDefinitionReferencesSorter.Sort( assetPath );
 ```
+
+## 依存しているパッケージ
+
+* https://github.com/baba-s/Kogane.JsonAssemblyDefinition
+* https://github.com/baba-s/Kogane.NaturalComparer
