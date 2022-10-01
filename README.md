@@ -5,7 +5,19 @@ AssemblyDefinitionAsset の References をファイル名順に並べ替える�
 ## 使用例
 
 ```csharp
-AssemblyDefinitionReferencesSorter.Sort( assetPath );
+using Kogane;
+using UnityEditor;
+
+public static class Example
+{
+    [MenuItem( "Tools/Hoge" )]
+    public static void Hoge()
+    {
+        var path = AssetDatabase.GetAssetPath( Selection.activeObject );
+        AssemblyDefinitionReferencesSorter.Sort( path );
+        AssetDatabase.Refresh();
+    }
+}
 ```
 
 ## 依存しているパッケージ
