@@ -29,7 +29,7 @@ namespace Kogane
             }
         }
 
-        public static void Sort( string assetPath )
+        public static bool Sort( string assetPath )
         {
             var json          = File.ReadAllText( assetPath );
             var jsonData      = JsonUtility.FromJson<JsonAssemblyDefinition>( json );
@@ -43,7 +43,7 @@ namespace Kogane
                     .ToArray()
                 ;
 
-            if ( newReferences.SequenceEqual( oldReferences ) ) return;
+            if ( newReferences.SequenceEqual( oldReferences ) ) return false;
 
             jsonData.references = newReferences;
 
@@ -57,6 +57,8 @@ namespace Kogane
             var asset = AssetDatabase.LoadAssetAtPath<Object>( assetPath );
 
             EditorUtility.SetDirty( asset );
+
+            return true;
         }
     }
 }
